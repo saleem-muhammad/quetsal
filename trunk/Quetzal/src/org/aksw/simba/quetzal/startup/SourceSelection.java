@@ -150,20 +150,21 @@ public class SourceSelection {
 		 	 "	  ?keggDrug <http://bio2rdf.org/ns/bio2rdf#xRef> ?cas .\n"+
 		 	 "	  ?keggDrug <http://bio2rdf.org/ns/bio2rdf#mass> ?mass . \n"+
 		 	 	 "	} "+
-		 	 "	  OPTIONAL { ?drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/biotransformation> ?transform . } \n"+
+		 	// "	  OPTIONAL { ?drug <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/biotransformation> ?transform . } \n"+
 		 	"}";
+		
 	    queries.add(S1);
 		queries.add(S2);
 		queries.add(S3);
 		queries.add(S4);
 		queries.add(S5);
 		queries.add(S6);
-		queries.add(S7);
+	queries.add(S7);
 		queries.add(S8);
-		queries.add(S9);
+	    queries.add(S9);
 		queries.add(S10);
 		queries.add(S11);
-		queries.add(S12);
+    	queries.add(S12);
 		queries.add(S13);
 		queries.add(S14);
 //		String repositoryID = "example-db";
@@ -192,29 +193,29 @@ public class SourceSelection {
 		//  System.out.println(DNFgrps)
 			System.out.println("Source selection exe time (ms): "+ (System.currentTimeMillis()-startTime));
 		
-		//	for (StatementPattern stmt : stmtToSources.keySet()) 
-		//	{
-			//	tpsrces = tpsrces+ stmtToSources.get(stmt).size();
-				//System.out.println("-----------\n"+stmt);
-				//System.out.println(stmtToSources.get(stmt));
-		//	}
+//			for (StatementPattern stmt : stmtToSources.keySet()) 
+//			{
+//				tpsrces = tpsrces+ stmtToSources.get(stmt).size();
+//				System.out.println("-----------\n"+stmt);
+//				System.out.println(stmtToSources.get(stmt));
+//			}
 //			System.out.println("Total Triple pattern-wise selected sources after step 2 of HIBISCuS source selection : "+ tpsrces);
 //			//  FederationManager.getInstance().shutDown();
 			//Thread.sleep(1000);
 		//	long startTime = System.currentTimeMillis();
 			String newQuery = QueryRewriting.doQueryRewriting(query,bgpGroups,stmtToSources);
-			//System.out.println(newQuery);
-			TupleQuery tupleQuery = repo.getConnection().prepareTupleQuery(QueryLanguage.SPARQL, newQuery); 
-			 int count = 0;
-			  TupleQueryResult result = tupleQuery.evaluate();
-					while(result.hasNext())
-					{
-					 //System.out.println(result.next());
-						result.next();
-						count++;
-					}
-			System.out.println(": Query execution time (msec):"+ (System.currentTimeMillis()-startTime));
-			System.out.println("Total results: " + count);
+			System.out.println(newQuery);
+//			TupleQuery tupleQuery = repo.getConnection().prepareTupleQuery(QueryLanguage.SPARQL, newQuery); 
+//			 int count = 0;
+//			  TupleQueryResult result = tupleQuery.evaluate();
+//					while(result.hasNext())
+//					{
+//					 //System.out.println(result.next());
+//						result.next();
+//						count++;
+//					}
+		//	System.out.println(": Query execution time (msec):"+ (System.currentTimeMillis()-startTime));
+		//	System.out.println("Total results: " + count);
 //			System.out.println("Rewriting: " + (System.currentTimeMillis()-startTime));
 //			Thread.sleep(1000);
 			

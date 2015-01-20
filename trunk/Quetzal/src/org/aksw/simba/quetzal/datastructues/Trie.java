@@ -64,15 +64,16 @@ public class Trie {
 	     *         the Trie with the given prefix.
 	     */
 	    public static TrieNode getLastNodeOfWord(String prefix)
-	    {
+	    { //System.out.println(prefix);
 	       //Find the node which represents the last letter of the prefix
 	       TrieNode lastNode = TrieNode.root;
 	       for (int i=0; i<prefix.length(); i++)
 	       {
+	    	  // TrieNode prevNode = lastNode;
 	       lastNode = lastNode.children.get(prefix.charAt(i));
-	       
+	      // System.out.println("chracter: "+ prefix.charAt(i) + "Node:" + lastNode.letter);
 	       //If no node matches, then no words exist, return empty list
-	      // if (lastNode == null) return new TrieNode();      
+	     //  if (lastNode == null) return prevNode;      
 	       }
 		return lastNode;
 	       
@@ -155,7 +156,7 @@ public class Trie {
 		List<String> combinations = new ArrayList<String> ();
 		 TrieNode curNode =  getLastNodeOfWord(uRI);
 		 //System.out.println(curNode.letter);
-		List<String>  paths = getRoot2StopingNodePaths(curNode,30);
+		List<String>  paths = getRoot2StopingNodePaths(curNode,100);
 		//System.out.println(paths);
 		if(paths.size()>0)
 		{

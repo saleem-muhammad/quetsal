@@ -813,7 +813,7 @@ public class QuetzalSourceSelection {
          // if(allCombURIs.size()>0)
 		//System.out.println("\n\n Before adding combinations: "+ newStmtToLstAuthorities);
            Map<StatementPattern, Map<StatementSource, ArrayList<String>>> finalStmtToLstAuthorities = addAllCombinations(newStmtToLstAuthorities,allNewURIs);
-         //  System.out.println("\n\n After adding combinations: "+ finalStmtToLstAuthorities);
+         // System.out.println("\n\n After adding combinations: "+ finalStmtToLstAuthorities);
          
          if(finalPrunningRequired==true)
          doFinalPruning(finalStmtToLstAuthorities);

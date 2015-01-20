@@ -40,13 +40,13 @@ public class GenerateSummaries {
 			));
 
     
-	String outputFile = "summaries\\quetzal-b1New.n3";
+	String outputFile = "summaries\\quetzal-b10.n3";
 	String namedGraph = "http://aksw.org/fedbench/";  //can be null. in that case all graph will be considered 
 	SummariesGenerator generator = new SummariesGenerator(outputFile);
 	long startTime = System.currentTimeMillis();
-	int branchLimit =1;
+	int branchLimit =4;
 	generator.generateSummaries(endpoints,namedGraph,branchLimit);
-	System.out.println("Data Summaries Generation Time (sec): "+ (System.currentTimeMillis()-startTime)/1000);
+	System.out.println("Data Summaries Generation Time (min): "+ (System.currentTimeMillis()-startTime)/(1000*60));
 	System.out.print("Data Summaries are secessfully stored at "+ outputFile);
 	
 //	outputFile = "summaries\\quetzal-b2.n3";

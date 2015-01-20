@@ -16,10 +16,11 @@ public class QueryRewriting {
 	public static String doQueryRewriting(
 			String query, HashMap<Integer, List<StatementPattern>> bgpGroups,
 			Map<StatementPattern, List<StatementSource>> stmtToSources) {
-		
+		 int exCount = 0 ; 
 		for(int bgpKey:bgpGroups.keySet()) 
 		{
 				excGroups.clear();
+				
 			List<StatementPattern>	stmts = bgpGroups.get(bgpKey);
 			for(StatementPattern stmt:stmts)
 			{			
@@ -59,7 +60,7 @@ public class QueryRewriting {
 					query= query.replace(triplePattern, services);
 				}
 			}
-
+      
 		//System.out.println(excGroups);
 		for(String serviceURL:excGroups.keySet())
 		{
@@ -71,7 +72,7 @@ public class QueryRewriting {
 				query =  query.replace(triples.get(0), service);
 			}
 			else
-			{
+			{  exCount = exCount+triples.size()-1;
 				service = "{\n   SERVICE  <"+serviceURL + "> {\n   ";
 				int count = 0;
 				for(String triple:triples)
@@ -88,9 +89,11 @@ public class QueryRewriting {
 				}
 
 			}
-			//System.out.println(service);
+			
 		}
+		
 		}
+		System.out.println("No. of Remote Joins : "+exCount);
 		//System.out.println(query);
 		return query;
 	}
